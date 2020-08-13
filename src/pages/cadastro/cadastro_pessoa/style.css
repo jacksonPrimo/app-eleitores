@@ -1,0 +1,40 @@
+.form-pes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0001;
+    width: 70%;
+    height: 75vh;
+}
+.form-pes .entrada{
+    width: 45%;
+    height: 10%;
+    border-radius: 5px;
+}
+.form-pes .entrada:hover{
+    border: 2px solid #0001;
+}
+.form-pes .entrada.endereco{
+    width: 95%;
+}
+.form-pes .entrada label{
+    margin-bottom: 10px;
+}
+.form-pes .entrada input, select, button{
+    width: 100%;
+    height: 100%;
+    color: #0009;
+    font-size: 1.1rem;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+}
+.form-pes .entrada button{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.form-pes .entrada button:hover{
+    background-color: #0004;
+    cursor: pointer;
+}
