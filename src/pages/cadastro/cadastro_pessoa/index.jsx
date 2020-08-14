@@ -19,11 +19,11 @@ export default function CadPessoa(props){
                 <DivInput type="text" name='nome' placeholder='Nome:'/>
                 <DivInput type="text" name='apelido' placeholder='Apelido:'/>
                 <DivInput type="date" name='data_nasc' placeholder='Data de Nascimento:'/>
-                <DivInput type="text" name='endereco' placeholder='Endereço:'/>
-                <DivInput type="text" name='secao' placeholder='Seção:'/>
+                <DivInput type="text" name='endereço' placeholder='Endereço:'/>
+                <DivInput type="text" name='seção' placeholder='Seção:'/>
                 <DivInput type="text" name='telefone' placeholder='Ex.: (00) 0000-0000'/>
                 <DivInput type="text" name='ctt_ref' placeholder='Contato/Referência:'/>
-                <DivSelect name="situacao">
+                <DivSelect name="situação">
                     <option value="">Situação do Eleitor</option>
                     <option value="votante">Eleitor</option>
                     <option value="nao votante">Não Eleitor</option>

@@ -1,5 +1,4 @@
 import React from 'react'
-import {editar, excluir} from '../utils/crud_table'
 export default class Body extends React.Component{
     constructor(props){
         super(props)
@@ -49,15 +48,15 @@ export default class Body extends React.Component{
                             <td>
                                 <i className="fas fa-arrows-alt expandir" 
                                     id_button={pessoa.id}
-                                    onClick={this.props.func}>
+                                    onClick={this.props.exp}>
                                 </i>
                                 <i className="fas fa-pencil editar" 
                                     id_button={pessoa.id}
-                                    onClick={editar}>    
+                                    onClick={this.props.edit}>    
                                 </i>
                                 <i className="fas fa-trash excluir" 
                                     id_button={pessoa.id}
-                                    onClick={excluir}>
+                                    onClick={this.props.excl}>
                                 </i>
                             </td>
                         </tr>  

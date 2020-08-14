@@ -26,11 +26,12 @@ export default class TabelaExp extends React.Component{
                     })
                 },
                 (error)=>{
-                    return(<div>error na busca</div>)
+                    return('error na busca')
                 }
             )
     }
-    render(){        
+    render(){
+        console.log(this.state)        
         return(
             <React.Fragment>
                 <Tr name="Nome" value={this.state.pessoa.nome}/>

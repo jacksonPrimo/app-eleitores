@@ -22,9 +22,22 @@ export default class Table extends React.Component{
         this.setState({conteudo: 'tabela'})
     }
     editarTabela=e=>{
-        this.setState({conteudo: 'editor'})
+        const id = e.target.getAttribute("id_button")
+        this.setState({
+            conteudo: 'editor',
+            id_pessoa: id
+        })
     }
-
+    excluirRegistro=e=>{
+        const id = e.target.getAttribute("id_button")
+        const linha = document.getElementById(id)
+        fetch(`http://localhost:8080/remover/${id}`, {method:'DELETE'})
+            .then(resp=>resp.json())
+            .then(resp=>{
+                    linha.style.display = 'none'
+                    alert(resp.message)
+            })
+    }
     render(){
         if(this.state.conteudo === 'tabela'){
             return(
@@ -42,7 +55,7 @@ export default class Table extends React.Component{
                                 </tr>
                             </thead>
                             <tbody>
-                                <Body func={this.expandirTabela}/>
+                                <Body exp={this.expandirTabela} edit={this.editarTabela} excl={this.excluirRegistro}/>
                             </tbody>
                         </table>
                     </div>
@@ -52,7 +65,7 @@ export default class Table extends React.Component{
         if(this.state.conteudo === 'tabela-expandida'){
             return(
                 <PageDefault>
-                    <button class="btn_voltar" onClick={this.atrofiarTabela}>voltar</button>
+                    <button className="btn_voltar" onClick={this.atrofiarTabela}>voltar</button>
                     <div className="div_table">
                         <table className="tabela_pessoa">
                             <TabelaExp id_pessoa={this.state.id_pessoa}/>
@@ -63,7 +76,7 @@ export default class Table extends React.Component{
         }
         else{
             return(
-                <EditTabela/>
+                <EditTabela id_pessoa={this.state.id_pessoa}/>
             )
         }
     }
