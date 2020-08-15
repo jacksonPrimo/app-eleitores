@@ -1,0 +1,21 @@
+.btn_menu{
+    display: none;
+}
+@media(max-width: 860px){
+    .btn_menu{
+        display: block;
+        width: auto;
+        height: auto;
+        color: black;
+        position: absolute;
+        left: 45%;
+        top: 12%;
+    }
+    .btn_menu i{
+        font-size: 30px;
+        width: 50px;
+    }
+    .btn_menu i:hover{
+        cursor: pointer;
+    }
+}

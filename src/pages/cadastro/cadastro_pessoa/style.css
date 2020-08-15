@@ -15,7 +15,7 @@
 .form-pes .entrada:hover{
     border: 2px solid #0001;
 }
-.form-pes .entrada.endereco{
+.form-pes .entrada.endereço{
     width: 95%;
 }
 .form-pes .entrada label{
@@ -37,4 +37,9 @@
 .form-pes .entrada button:hover{
     background-color: #0004;
     cursor: pointer;
+}
+@media(max-width: 860px){
+    .form-pes{
+        width: 100%;
+    }
 }

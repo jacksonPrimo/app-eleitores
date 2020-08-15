@@ -4,9 +4,10 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Home from './pages/home/index'
-import CadPessoa from './pages/cadastro/cadastro_pessoa/index'
-import CadSecao from './pages/cadastro/cadastro_secao/index'
-import RelatorioPess from './pages/relatorio/relatorio_pessoa/index'
+import CadPessoa from './pages/cadastro/cadastro_pessoa'
+import CadSecao from './pages/cadastro/cadastro_secao'
+import RelatorioPess from './pages/relatorio/relatorio_pessoa'
+import RelatorioSec from './pages/relatorio/relatorio_secao'
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -15,7 +16,7 @@ ReactDOM.render(
         <Route path="/cadastrar/pessoa" component={CadPessoa}/>
         <Route path="/cadastrar/secao" component={CadSecao}/>
         <Route path="/relatorio/pessoa" component={RelatorioPess}/>
-        {/* <Route path="/relatorio/secao" component={}/> */}
+        <Route path="/relatorio/secao" component={RelatorioSec}/>
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,

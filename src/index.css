@@ -19,18 +19,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-#root .pageDefault{
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 2fr 8fr;
-  grid-template-rows: 1fr 8fr 30px;
-  grid-template-areas:
-  "logo header"
-  "navbar main"
-  "footer footer";
-}
-#root .pageDefault section{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

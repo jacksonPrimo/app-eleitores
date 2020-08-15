@@ -1,0 +1,23 @@
+.pageDefault{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 65px 8fr 30px;
+    grid-template-areas:
+    "logo header"
+    "navbar main"
+    "footer footer";
+  }
+.pageDefault section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+@media(max-width: 860px){
+    .pageDefault{
+        grid-template-areas:
+        "logo header"
+        "main main"
+        "footer footer";
+    }
+}

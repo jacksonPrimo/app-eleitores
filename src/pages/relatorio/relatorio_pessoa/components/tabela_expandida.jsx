@@ -15,7 +15,7 @@ export default class TabelaExp extends React.Component{
         }
     }
     componentDidMount(){
-        fetch(`http://localhost:8080/buscar/${this.props.id_pessoa}`)
+        fetch(`http://localhost:8080/pessoa/buscar/${this.props.id_pessoa}`)
             .then(resp=>resp.json())
             .then(
                 (result)=>{

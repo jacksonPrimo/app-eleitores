@@ -31,7 +31,7 @@ export default class Table extends React.Component{
     excluirRegistro=e=>{
         const id = e.target.getAttribute("id_button")
         const linha = document.getElementById(id)
-        fetch(`http://localhost:8080/remover/${id}`, {method:'DELETE'})
+        fetch(`http://localhost:8080/pessoa/remover/${id}`, {method:'DELETE'})
             .then(resp=>resp.json())
             .then(resp=>{
                     linha.style.display = 'none'
@@ -76,7 +76,7 @@ export default class Table extends React.Component{
         }
         else{
             return(
-                <EditTabela id_pessoa={this.state.id_pessoa}/>
+                <EditTabela btn_func={this.atrofiarTabela} id_pessoa={this.state.id_pessoa}/>
             )
         }
     }

@@ -8,7 +8,7 @@ import DivButton from '../../../components/formulario/div_button'
 export default function CadPessoa(props){
     return(
         <PageDefault>
-            <form className="form-pes" name='form-pes' action='http://localhost:8080/adicionar' method='post' onSubmit={e=>Cadastrar(e)}>
+            <form className="form-pes" name='form-pes' action='http://localhost:8080/pessoa/adicionar' method='post' onSubmit={e=>Cadastrar(e)}>
                 <DivSelect name="cidade">
                     <option value="">Cidade</option>
                     <option value="Carutapera">Carutapera-MA</option>

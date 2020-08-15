@@ -18,6 +18,12 @@
 .form-sec .entrada.endereco{
     width: 95%;
 }
+.form-sec .entrada.capacidade{
+    width: 20%;
+}
+.form-sec .entrada.numero{
+    width: 20%;
+}
 .form-sec .entrada label{
     margin-bottom: 10px;
 }
@@ -37,4 +43,9 @@
 .form-sec .entrada button:hover{
     background-color: #0004;
     cursor: pointer;
+}
+@media(max-width: 860px){
+    .form-sec{
+        width: 100%;
+    }
 }

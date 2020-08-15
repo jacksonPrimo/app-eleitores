@@ -53,3 +53,8 @@
 .btn_voltar:hover{
     cursor: pointer;
 }
+@media(max-width: 860px){
+    .div_table{
+        width: 100vh;
+    }
+}

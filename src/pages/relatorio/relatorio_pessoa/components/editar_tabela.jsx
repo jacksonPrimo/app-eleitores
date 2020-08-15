@@ -20,7 +20,7 @@ export default class EditTabela extends React.Component{
         this.state = {...initialState}
     }
     componentDidMount(){
-        fetch(`http://localhost:8080/buscar/${this.props.id_pessoa}`)
+        fetch(`http://localhost:8080/pessoa/buscar/${this.props.id_pessoa}`)
             .then(resp=>resp.json())
             .then(
                 (result)=>{
@@ -47,9 +47,10 @@ export default class EditTabela extends React.Component{
         this.setState(...initialState)
     }
     render(){
-        let action = `http://localhost:8080/editar/${this.props.id_pessoa}`
+        let action = `http://localhost:8080/pessoa/editar/${this.props.id_pessoa}`
         return(
             <PageDefault>
+                <button className="btn_voltar" onClick={this.props.btn_func}>voltar</button>
                 <form className="form-pes" name='form-pes' action={action} method='PUT' onSubmit={Editar}>
                     <div className="entrada">
                         <select required className="cidade" name="cidade" id="cidade" onChange={this.change} value={this.state.cidade}>
@@ -69,7 +70,7 @@ export default class EditTabela extends React.Component{
                     <div className="entrada">
                         <input required type="date" name='data_nasc' placeholder='Data de Nascimento:' onChange={this.change} value={this.state.data_nasc}/>
                     </div>
-                    <div className="entrada endereco">
+                    <div className="entrada endereço">
                         <input required type="text" name='endereço' placeholder='Endereço:' onChange={this.change} value={this.state.endereço}/>
                     </div>
                     <div className="entrada">
