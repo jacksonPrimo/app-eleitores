@@ -1,8 +1,7 @@
 import React from 'react'
-import PageDefault from '../../../components/pageDefault/index'
-import Body from './components/body_table'
+import Body from './body-table'
 import TabelaExp from '../../../relatorio_pessoa/components/tabela_expandida'
-import EditTabela from '../../../relatorio_pessoa/components/editar_tabela'
+import EditTabela from './editar_tabela'
 export default class Tabela extends React.Component{
     constructor(props){
         super(props)
@@ -40,37 +39,35 @@ export default class Tabela extends React.Component{
     render(){
         if(this.state.conteudo === 'tabela'){
             return(
-                <PageDefault>
-                    <div className="div_table">
-                        <table className="tabela_pessoa">
-                            <thead>
-                                <tr>
-                                    <th>Cidade</th>
-                                    <th>Nome</th>
-                                    <th>Seção</th>
-                                    <th>Situação</th>
-                                    <th>ID</th>
-                                    <th>opções</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <Body exp={this.expandirTabela} edit={this.editarTabela} excl={this.excluirRegistro}/>
-                            </tbody>
-                        </table>
-                    </div>
-                </PageDefault>
+                <div className="div_table">
+                    <table className="tabela_pessoa">
+                        <thead>
+                            <tr>
+                                <th>Cidade</th>
+                                <th>Nome</th>
+                                <th>Seção</th>
+                                <th>Situação</th>
+                                <th>ID</th>
+                                <th>opções</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <Body valueBusca={this.props.valueBusca} exp={this.expandirTabela} edit={this.editarTabela} excl={this.excluirRegistro}/>
+                        </tbody>
+                    </table>
+                </div>
             )
         }
         if(this.state.conteudo === 'tabela-expandida'){
             return(
-                <PageDefault>
+                <React.Component>
                     <button className="btn_voltar" onClick={this.atrofiarTabela}>voltar</button>
                     <div className="div_table">
                         <table className="tabela_pessoa">
                             <TabelaExp id_pessoa={this.state.id_pessoa}/>
                         </table>
                     </div>
-                </PageDefault>
+                </React.Component>
             )
         }
         else{

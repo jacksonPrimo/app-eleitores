@@ -1,8 +1,7 @@
 import React from 'react'
 import './style.css'
 import PageDefault from '../../../../components/pageDefault'
-import ConteudoTabela from './components/body-table.jsx' 
-//import DivSelect from '../../../../components/formulario/div_select'
+import Tabela from './components/tabela'
 export default class Pesquisa extends React.Component{
     constructor(props){
         super(props)
@@ -34,7 +33,7 @@ export default class Pesquisa extends React.Component{
             <PageDefault>
                 <div className="div_pesquisa">
                     <form onSubmit={this.submit}>
-                        <select required name="nomePesquisa" id="nomePesquisa" onChange={}>
+                        <select required name="nomePesquisa" id="nomePesquisa" onChange={this.changeSelect}>
                             <option value="">pesquisar</option>
                             <option value="nome">Nome</option>
                             <option value="cidade">Cidade</option>
@@ -45,13 +44,13 @@ export default class Pesquisa extends React.Component{
                             <option value="telefone">telefone</option>
                             <option value="referência">referência</option>
                         </select>
-                        <input required onChange={this.change} type="text" name={this.props.nomePesquisa}/>
+                        <input required onChange={this.changeInput} type="text" name={this.props.nomePesquisa}/>
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     {
                     this.state.value === ''
                     ?''
-                    :<ConteudoTabela valueBusca={this.state.value}/>
+                    :<Tabela valueBusca={this.state.value}/>
                     }
                 </div>
             </PageDefault>

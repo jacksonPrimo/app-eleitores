@@ -8,7 +8,7 @@ export default class Body extends React.Component{
         }
     }
     componentDidMount(){
-        fetch('http://localhost:8080/pessoa/listar')
+        fetch(`http://localhost:8080/pessoa/filtrar/${this.props.valueBusca}`)
             .then(resp => resp.json())
             .then(
                 (result)=>{

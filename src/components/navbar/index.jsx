@@ -2,7 +2,6 @@ import React from 'react'
 import LinkNav from './components/LinkNav'
 import ItemList from './components/ItemList'
 import './style.css'
-import BarraDeBusca from './components/barraDeBusca'
 
 export default function NavBar(props){
     return(
@@ -23,7 +22,7 @@ export default function NavBar(props){
                 <ItemList fig="fas fa-search" txtSpan="Pesquisar">
                     <ul className="sub_menu">
                         <LinkNav fig="fas fa-hashtag" txtSpan="Apelido" url="/relatorio/busca/apelido"/>
-                        <LinkNav fig="fas fa-building" txtSpan="Seção" url="/relatorio/busca/seção"/>
+                        <LinkNav fig="fas fa-building" txtSpan="Seção" url="/relatorio/busca/busca"/>
                         <LinkNav fig="fas fa-map-marker-alt" txtSpan="Referência" url="/relatorio/busca/ref"/>
                     </ul>
                 </ItemList>
