@@ -1,0 +1,37 @@
+.div_pesquisa{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div_pesquisa form{
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0px;
+}
+.div_pesquisa form input{
+    height: 30px;
+    width: 400px;
+}
+.div_pesquisa form button{
+    height: 30px;
+    width: 45px;
+}
+.div_pesquisa form button:hover{
+    cursor: pointer;
+}
+.div_pesquisa table{
+    width: 445px;
+    border-collapse: collapse;
+}
+.div_pesquisa table tr{
+    border-bottom: 1px solid rgb(112, 112, 112)
+}
+.div_pesquisa table th{
+    text-align: left;
+    margin-right: 25px;
+}
+.div_pesquisa table td{
+    text-align: center;
+}

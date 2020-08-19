@@ -1,21 +1,22 @@
 .btn_menu{
+    grid-area: btn_menu;
+    background-color: var(--bg-dark);
+}
+.btn_menu button{
     display: none;
 }
-@media(max-width: 860px){
-    .btn_menu{
+@media(max-width: 700px){
+    .btn_menu button{
         display: block;
         width: auto;
         height: auto;
         color: black;
-        position: absolute;
-        left: 45%;
-        top: 12%;
     }
-    .btn_menu i{
+    .btn_menu button i{
         font-size: 30px;
         width: 50px;
     }
-    .btn_menu i:hover{
+    .btn_menu button i:hover{
         cursor: pointer;
     }
 }

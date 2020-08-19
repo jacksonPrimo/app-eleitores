@@ -18,6 +18,9 @@
 .form-pes .entrada.endereço{
     width: 95%;
 }
+.form-pes .entrada.div_button{
+    width: 30%;
+}
 .form-pes .entrada label{
     margin-bottom: 10px;
 }
@@ -38,8 +41,16 @@
     background-color: #0004;
     cursor: pointer;
 }
-@media(max-width: 860px){
+@media(max-width: 700px){
     .form-pes{
+        height: 100%;
         width: 100%;
+    }
+    .form-pes .entrada:hover{
+        border: none;
+    }
+    .form-pes .entrada{
+        width: 95%;
+        padding: 5px 0px;
     }
 }

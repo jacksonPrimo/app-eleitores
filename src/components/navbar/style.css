@@ -42,8 +42,8 @@
 .menu_lateral .item_list .sub_menu{
     list-style: none;
     width: 100%;
-} 
-.menu_lateral .item_list .sub_menu li:hover{
+}
+.menu_lateral .item_list .sub_menu .li-link:hover{
     background-color: rgb(126, 126, 126);
 }
 .menu_lateral .item_list .sub_menu .link_nav{
@@ -57,15 +57,19 @@
 .menu_lateral .item_list .sub_menu .link_nav i{
     padding-right: 25px;
 }
-@media(max-width: 860px){
+@media(max-width: 900px){
+    .menu_lateral .item_list .sub_menu li .link_nav{
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+    }
+}
+@media(max-width: 700px){
     .navbar{
         background-color: rgb(230, 230, 230);
         position: absolute;
         width: 40%;
         height: calc(100vh - 95px);
         top: 65px;
-    }
-    .menu_lateral .item_list .sub_menu .link_nav{
-        padding-left: 12px;
     }
   }

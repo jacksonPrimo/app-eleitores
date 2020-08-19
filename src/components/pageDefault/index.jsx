@@ -1,21 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import Header from '../header'
+import BtnMenu from '../botao_menu'
 import NavBar from '../navbar'
 import Footer from '../footer'
 import Logo from '../logo'
-import BtnMenu from '../botao_menu'
 import './style.css'
 
 const Main = styled.section`
-    flex: 1;
-    padding-top: 50px; 
     padding-left: 5%; 
     padding-right: 5%; 
+    paddig-top: 60px;
     grid-area: main;
-    @media(max-width:860px){
+    @media(max-width:700px){
         padding-left: 0px;
         padding-right: 0px;
+        padding-top: 0px;
     }
 `
 
@@ -40,13 +39,10 @@ export default class PageDefault extends React.Component{
     render(){
         return(
             <div className="pageDefault">
+                <BtnMenu func={this.actionClick}/>
                 <Logo/>
-                <Header/>
                 <NavBar position={this.state.position}/>
                 <Main>
-                    <button className="btn_menu" onClick={this.actionClick}>
-                        <i className="fas fa-bars"></i>
-                    </button>
                     {this.props.children}
                 </Main>
                 <Footer/>

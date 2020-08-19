@@ -29,14 +29,3 @@
 .div_table .tabela_secao td i.fa-pencil{
     color: rgb(197, 197, 3);
 }
-.btn_voltar{
-    position: absolute;
-    right: 20px;
-    top: 90px;
-    width: 60px;
-    height: 30px;
-    background-color: rgb(0, 158, 111);
-}
-.btn_voltar:hover{
-    cursor: pointer;
-}
