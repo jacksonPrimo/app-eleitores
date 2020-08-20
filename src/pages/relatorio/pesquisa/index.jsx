@@ -1,11 +1,12 @@
 import React from 'react'
 import './style.css'
-import PageDefault from '../../../../components/pageDefault'
+import PageDefault from '../../../components/pageDefault'
 import Tabela from './components/tabela'
 export default class Pesquisa extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            type: 'text',
             valueInput:'',
             valueSelect: '',
             value: ''
@@ -18,14 +19,23 @@ export default class Pesquisa extends React.Component{
         })
     }
     changeSelect=(e)=>{
-        this.setState({
-            value: '',
-            valueSelect: e.target.value
-        })
+        if(e.target.value === 'data_nasc'){
+            this.setState({
+                type: 'date',
+                value: '',
+                valueSelect: e.target.value
+            })
+        }else{
+            this.setState({
+                type: 'text',
+                value: '',
+                valueSelect: e.target.value
+            })
+        }
     }
     submit=(e)=>{
         e.preventDefault()
-        let concat = `${this.state.valueSelect}-${this.state.valueInput}`
+        let concat = `${this.state.valueSelect}=${this.state.valueInput}`
         this.setState({value: concat})
     }
     render(){
@@ -42,9 +52,10 @@ export default class Pesquisa extends React.Component{
                             <option value="apelido">apelido</option>
                             <option value="data_nasc">data de nascimento</option>
                             <option value="telefone">telefone</option>
-                            <option value="referência">referência</option>
+                            <option value="ctt_ref">referência</option>
+                            <option value="situação">Situação</option>
                         </select>
-                        <input required onChange={this.changeInput} type="text" name={this.props.nomePesquisa}/>
+                        <input required onChange={this.changeInput} type={this.state.type} name={this.props.nomePesquisa}/>
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     {

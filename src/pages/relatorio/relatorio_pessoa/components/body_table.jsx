@@ -12,7 +12,15 @@ export default class Body extends React.Component{
             .then(resp => resp.json())
             .then(
                 (result)=>{
-                    this.setState({data: result})
+                    if(result === []){
+                        this.setState({
+                            error: 'sem seções cadastradas'
+                        })
+                    }else{
+                        this.setState({
+                            data: result
+                        })
+                    }
                 },
                 (error)=>{
                     this.setState({

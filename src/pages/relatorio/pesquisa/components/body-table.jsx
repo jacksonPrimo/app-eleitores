@@ -3,7 +3,6 @@ export default class Body extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            isLoaded: false,
             data: []
         }
     }
@@ -12,11 +11,14 @@ export default class Body extends React.Component{
             .then(resp => resp.json())
             .then(
                 (result)=>{
-                    this.setState({data: result})
+                    if(result === []){
+                        this.setState({error: 'resultado não encontrado'})
+                    }else{
+                        this.setState({data: result})
+                    }
                 },
                 (error)=>{
                     this.setState({
-                        isLoaded: true,
                         error
                     })
                 }

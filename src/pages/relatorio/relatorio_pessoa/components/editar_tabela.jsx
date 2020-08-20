@@ -1,6 +1,5 @@
 import React from 'react'
 import Editar from '../utils/put'
-import PageDefault from '../../../../components/pageDefault/index'
 import DivButton from '../../../../components/formulario/div_button'
 let initialState = {
     cidade: '',
@@ -49,7 +48,7 @@ export default class EditTabela extends React.Component{
     render(){
         let action = `http://localhost:8080/pessoa/editar/${this.props.id_pessoa}`
         return(
-            <PageDefault>
+            <React.Fragment>
                 <button className="btn_voltar" onClick={this.props.btn_func}>voltar</button>
                 <form className="form-pes" name='form-pes' action={action} method='PUT' onSubmit={Editar}>
                     <div className="entrada">
@@ -93,7 +92,7 @@ export default class EditTabela extends React.Component{
                     <DivButton name="Registrar" type="submit"/>
                     <DivButton name="Cancelar" type="reset" onClik={this.reset}/>
                 </form>
-            </PageDefault>
+            </React.Fragment>
         )
     }
 }

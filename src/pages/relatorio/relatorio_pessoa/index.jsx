@@ -76,7 +76,9 @@ export default class Table extends React.Component{
         }
         else{
             return(
-                <EditTabela btn_func={this.atrofiarTabela} id_pessoa={this.state.id_pessoa}/>
+                <PageDefault>
+                    <EditTabela btn_func={this.atrofiarTabela} id_pessoa={this.state.id_pessoa}/>
+                </PageDefault>
             )
         }
     }

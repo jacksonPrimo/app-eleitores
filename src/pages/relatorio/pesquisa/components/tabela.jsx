@@ -1,7 +1,7 @@
 import React from 'react'
 import Body from './body-table'
-import TabelaExp from '../../../relatorio_pessoa/components/tabela_expandida'
-import EditTabela from './editar_tabela'
+import TabelaExp from '../../relatorio_pessoa/components/tabela_expandida'
+import EditTabela from '../../relatorio_pessoa/components/editar_tabela'
 export default class Tabela extends React.Component{
     constructor(props){
         super(props)
@@ -60,14 +60,14 @@ export default class Tabela extends React.Component{
         }
         if(this.state.conteudo === 'tabela-expandida'){
             return(
-                <React.Component>
+                <React.Fragment>
                     <button className="btn_voltar" onClick={this.atrofiarTabela}>voltar</button>
                     <div className="div_table">
                         <table className="tabela_pessoa">
                             <TabelaExp id_pessoa={this.state.id_pessoa}/>
                         </table>
                     </div>
-                </React.Component>
+                </React.Fragment>
             )
         }
         else{

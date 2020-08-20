@@ -28,16 +28,19 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
+    padding-left: 20%;
 }
 .menu_lateral .item_list:hover{
     cursor: pointer;
     background-color: rgb(207, 205, 205);
 }
-.menu_lateral .item_list div{
+.menu_lateral .item_list .div-item-list{
     display: flex;
     align-items: center;
     height: 60px;
+    text-decoration: none;
+    color: black;
 }
 .menu_lateral .item_list .sub_menu{
     list-style: none;
@@ -51,7 +54,7 @@
     display: flex;
     align-items: center;
     color: rgb(41, 41, 41);
-    padding-left: 40%;
+    padding-left: 20%;
     text-decoration: none;
 }
 .menu_lateral .item_list .sub_menu .link_nav i{
