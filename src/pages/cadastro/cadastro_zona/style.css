@@ -1,4 +1,4 @@
-.form-sec{
+.form_zona{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -7,21 +7,27 @@
     width: 60%;
     height: 50vh;
 }
-.form-sec .entrada{
+.form_zona .entrada{
     width: 45%;
     height: 15%;
     border-radius: 5px;
 }
-.form-sec .entrada:hover{
+.form_zona .entrada:hover{
     border: 2px solid #0001;
 }
-.form-sec .endereço, .form-sec .referência{
+.form_zona .entrada.endereco{
     width: 95%;
 }
-.form-sec .entrada label{
+.form_zona .entrada.capacidade{
+    width: 20%;
+}
+.form_zona .entrada.numero{
+    width: 20%;
+}
+.form_zona .entrada label{
     margin-bottom: 10px;
 }
-.form-sec .entrada input, select, button{
+.form_zona .entrada input, select, button{
     width: 100%;
     height: 100%;
     color: #0009;
@@ -30,29 +36,29 @@
     border: 0;
     border-radius: 5px;
 }
-.form-sec .entrada button{
+.form_zona .entrada button{
     font-size: 1.3rem;
     font-weight: bold;
 }
-.form-sec .entrada button:hover{
+.form_zona .entrada button:hover{
     background-color: #0004;
     cursor: pointer;
 }
 @media(max-width: 700px){
-    .form-sec{
+    .form_zona{
         width: 100%;
         height: 100%
     }
-    .form-sec .entrada{
+    .form_zona .entrada{
         height: 10%;
     }
-    .form-sec .entrada.capacidade{
+    .form_zona .entrada.capacidade{
         width: 95%;
     }
-    .form-sec .entrada.numero{
+    .form_zona .entrada.numero{
         width: 95%;
     }
-    .form-sec .entrada.cidade{
+    .form_zona .entrada.cidade{
         width: 95%;
     }
 }

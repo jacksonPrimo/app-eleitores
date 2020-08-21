@@ -20,7 +20,7 @@ export default class TabelaExp extends React.Component{
             .then(
                 (result)=>{
                     let pessoa = result[0]
-                    pessoa['data_nasc'] = pessoa['data_nasc'].split('T')[0]
+                    pessoa['data_de_nascimento'] = pessoa['data_de_nascimento'].split('T')[0]
                     this.setState({
                         pessoa
                     })

@@ -59,9 +59,9 @@ export default class Pesquisa extends React.Component{
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     {
-                    this.state.value === ''
-                    ?''
-                    :<Tabela valueBusca={this.state.value}/>
+                        this.state.value === ''
+                        ?''
+                        :<Tabela valueBusca={this.state.value}/>
                     }
                 </div>
             </PageDefault>

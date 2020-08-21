@@ -8,7 +8,7 @@ import DivButton from '../../../components/formulario/div_button'
 export default function CadPessoa(props){
     return(
         <PageDefault>
-            <form className="form-pes" name='form-pes' action='http://localhost:8080/pessoa/adicionar' method='post' onSubmit={e=>Cadastrar(e)}>
+            <form className="form_pes" action='http://localhost:8080/pessoa/adicionar' method='post' onSubmit={e=>Cadastrar(e)}>
                 <DivSelect name="cidade">
                     <option value="">Cidade</option>
                     <option value="Carutapera">Carutapera-MA</option>
@@ -18,16 +18,16 @@ export default function CadPessoa(props){
                 </DivSelect>
                 <DivInput type="text" name='nome' placeholder='Nome:'/>
                 <DivInput type="text" name='apelido' placeholder='Apelido:'/>
-                <DivInput type="date" name='data_nasc' placeholder='Data de Nascimento:'/>
+                <DivInput type="date" name='data_de_nascimento' placeholder='Data de Nascimento:'/>
                 <DivInput type="text" name='endereço' placeholder='Endereço:'/>
                 <DivInput type="text" name='seção' placeholder='Seção:'/>
                 <DivInput type="text" name='telefone' placeholder='Ex.: (00) 0000-0000'/>
-                <DivInput type="text" name='ctt_ref' placeholder='Contato/Referência:'/>
+                <DivInput type="text" name='referência' placeholder='Referência:'/>
                 <DivSelect name="situação">
                     <option value="">Situação do Eleitor</option>
-                    <option value="votante">Eleitor</option>
-                    <option value="nao votante">Não Eleitor</option>
-                    <option value="indeciso">Eleitor indeciso</option>
+                    <option value="Votante">Eleitor</option>
+                    <option value="Nao Votante">Não Eleitor</option>
+                    <option value="Indeciso">Eleitor indeciso</option>
                 </DivSelect>
                 <DivButton name="Registrar" type="submit"/>
                 <DivButton name="Cancelar" type="reset"/>

@@ -5,22 +5,20 @@ import PageDefault from '../../../components/pageDefault/index'
 import DivInput from '../../../components/formulario/div_input'
 import DivSelect from '../../../components/formulario/div_select'
 import DivButton from '../../../components/formulario/div_button'
-export default function CadSecao(){
+export default function CadZona(){
     return(
         <PageDefault>
-            <form className="form-sec" name='form-sec' action='http://localhost:8080/secao/adicionar' method='post' onSubmit={e=>Cadastrar(e)}>
-                <DivSelect name="cidade">
+            <form className="form_zona" name='form_zona' action='http://localhost:8080/secao/adicionar' method='post' onSubmit={e=>Cadastrar(e)}>
+                <DivInput type='text' name='numero' placeholder='Numero:'/>
+                {/* <DivSelect name="cidade">
                     <option value="">Cidade</option>
                     <option value="Carutapera">Carutapera-MA</option>
                     <option value="Amapá">Amapá-MA</option>
                     <option value="Cândido Mendes">Cândido Mendes-MA</option>
                     <option value="São luis">São Luís-MA</option>
-                </DivSelect>
+                </DivSelect> */}
                 <DivInput type='text' name='capacidade' placeholder='Capacidade:'/>
-                <DivInput type='text' name='zona' placeholder='Zona:'/>
-                <DivInput type='text' name='numero' placeholder='Numero:'/>
-                <DivInput type='text' name='endereço' placeholder='Endereço:'/>
-                <DivInput type='text' name='referência' placeholder='Referência:'/>
+                <DivInput type='text' name='endereco' placeholder='Endereço:'/>
                 <DivButton name="Registrar" type="submit"/>
                 <DivButton name="Cancelar" type="reset"/>
             </form>

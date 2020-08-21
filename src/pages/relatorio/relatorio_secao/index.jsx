@@ -43,10 +43,12 @@ export default class Table extends React.Component{
                         <table className="tabela_secao">
                             <thead>
                                 <tr>
-                                    <th>Numero</th>
                                     <th>Cidade</th>
                                     <th>Capacidade</th>
+                                    <th>Zona</th>
+                                    <th>Numero</th>
                                     <th>Endereço</th>
+                                    <th>Referência</th>
                                     <th>opções</th>
                                 </tr>
                             </thead>

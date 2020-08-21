@@ -5,11 +5,11 @@ let initialState = {
     cidade: '',
     nome: '',
     apelido: '',
-    data_nasc: '',
+    data_de_nascimento: '',
     endereço: '',
     seção: '',
     telefone: '',
-    ctt_ref: '',
+    referência: '',
     situação: '',
     id: ''
 }
@@ -24,8 +24,9 @@ export default class EditTabela extends React.Component{
             .then(
                 (result)=>{
                     let pessoa = result[0]
-                    pessoa['data_nasc'] = pessoa['data_nasc'].split('T')[0]
+                    pessoa['data_de_nascimento'] = pessoa['data_de_nascimento'].split('T')[0]
                     initialState = {...pessoa}
+                    console.log(initialState)
                     this.setState({
                         ...pessoa
                     })
@@ -43,17 +44,17 @@ export default class EditTabela extends React.Component{
     }
     reset=e=>{
         e.preventDefault()
-        this.setState(...initialState)
+        this.setState({...initialState})
     }
     render(){
-        let action = `http://localhost:8080/pessoa/editar/${this.props.id_pessoa}`
+        let action = `http://localhost:8080/pessoa/atualizar/${this.props.id_pessoa}`
         return(
             <React.Fragment>
                 <button className="btn_voltar" onClick={this.props.btn_func}>voltar</button>
-                <form className="form-pes" name='form-pes' action={action} method='PUT' onSubmit={Editar}>
+                <form className="form_pes" action={action} method='put' onSubmit={Editar}>
                     <div className="entrada">
-                        <select required className="cidade" name="cidade" id="cidade" onChange={this.change} value={this.state.cidade}>
-                            <option value=''>Cidade</option>
+                        <select required name="cidade" id="cidade" onChange={this.change} value={this.state.cidade}>
+                            <option value="">Cidade</option>
                             <option value="Carutapera">Carutapera-MA</option>
                             <option value="Amapá">Amapá-MA</option>
                             <option value="Cândido Mendes">Cândido Mendes-MA</option>
@@ -67,7 +68,7 @@ export default class EditTabela extends React.Component{
                         <input required type="text" name='apelido' placeholder='Apelido:' onChange={this.change} value={this.state.apelido}/>
                     </div>
                     <div className="entrada">
-                        <input required type="date" name='data_nasc' placeholder='Data de Nascimento:' onChange={this.change} value={this.state.data_nasc}/>
+                        <input required type="date" name='data_de_nascimento' placeholder='Data de Nascimento:' onChange={this.change} value={this.state.data_de_nascimento}/>
                     </div>
                     <div className="entrada endereço">
                         <input required type="text" name='endereço' placeholder='Endereço:' onChange={this.change} value={this.state.endereço}/>
@@ -79,18 +80,18 @@ export default class EditTabela extends React.Component{
                         <input required type="text" name='telefone' placeholder='Ex.: (00) 0000-0000' onChange={this.change} value={this.state.telefone}/>
                     </div>
                     <div className="entrada">
-                        <input required type="text" name='ctt_ref' placeholder='Contato/Referência:' onChange={this.change} value={this.state.ctt_ref}/>
+                        <input required type="text" name='referência' placeholder='Referência:' onChange={this.change} value={this.state.referência}/>
                     </div>
                     <div className="entrada">
                         <select required name="situação" id="situação" onChange={this.change} value={this.state.situação}>
                             <option value="">Situação do Eleitor</option>
-                            <option value="votante">Eleitor</option>
-                            <option value="nao votante">Não Eleitor</option>
-                            <option value="indeciso">Eleitor indeciso</option>
+                            <option value="Eleitor">Eleitor</option>
+                            <option value="Nao Eleitor">Não Eleitor</option>
+                            <option value="Indeciso">Indeciso</option>
                         </select>
                     </div>
-                    <DivButton name="Registrar" type="submit"/>
-                    <DivButton name="Cancelar" type="reset" onClik={this.reset}/>
+                    <DivButton name="Atualizar" type="submit"/>
+                    <DivButton name="Cancelar" type="reset" func={this.reset}/>
                 </form>
             </React.Fragment>
         )

@@ -38,6 +38,9 @@ export default class Body extends React.Component{
                     <td>erro</td>
                     <td>erro</td>
                     <td>erro</td>
+                    <td>erro</td>
+                    <td>erro</td>
+                    <td>erro</td>
                 </tr>
             )
         }
@@ -46,10 +49,12 @@ export default class Body extends React.Component{
                 {
                     this.state.data.map((sec, index)=>
                         <tr key={index} id={sec.numero}>
-                            <td>{sec.numero}</td>
                             <td>{sec.cidade}</td>
                             <td>{sec.capacidade}</td>
+                            <td>{sec.zona}</td>
+                            <td>{sec.numero}</td>
                             <td>{sec.endereço}</td>
+                            <td>{sec.referência}</td>
                             <td>
                                 <i className="fas fa-pencil editar" 
                                     id_button={sec.numero}

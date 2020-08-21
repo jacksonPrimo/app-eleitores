@@ -37,7 +37,7 @@ export default class EditTabela extends React.Component{
     }
     reset=e=>{
         e.preventDefault()
-        this.setState(...initialState)
+        this.setState({...initialState})
     }
     render(){
         let action = `http://localhost:8080/secao/atualizar/${this.props.numero_sec}`
@@ -45,9 +45,6 @@ export default class EditTabela extends React.Component{
             <PageDefault>
                 <button className="btn_voltar" onClick={this.props.btn_func}>voltar</button>
                 <form className="form-sec" action={action} method='put' onSubmit={Editar}>
-                    <div className="entrada numero">
-                        <input required type="text" name='numero' placeholder='Numero:' onChange={this.change} value={this.state.numero}/>
-                    </div>
                     <div className="entrada cidade">
                         <select required name="cidade" id="cidade" onChange={this.change} value={this.state.cidade}>
                             <option value=''>Cidade</option>
@@ -60,11 +57,20 @@ export default class EditTabela extends React.Component{
                     <div className="entrada capacidade">
                         <input required type="text" name='capacidade' placeholder='Capacidade:' onChange={this.change} value={this.state.capacidade}/>
                     </div>
-                    <div className="entrada endereco">
+                    <div className="entrada zona">
+                        <input required type="text" name='zona' placeholder='Zona:' onChange={this.change} value={this.state.zona}/>
+                    </div>
+                    <div className="entrada numero">
+                        <input required type="text" name='numero' placeholder='Numero:' onChange={this.change} value={this.state.numero}/>
+                    </div>
+                    <div className="entrada endereço">
                         <input required type="text" name='endereço' placeholder='Endereço:' onChange={this.change} value={this.state.endereço}/>
                     </div>
+                    <div className="entrada referência">
+                        <input required type="text" name='referência' placeholder='referência:' onChange={this.change} value={this.state.referência}/>
+                    </div>
                     <DivButton name="Atualizar" type="submit"/>
-                    <DivButton name="Cancelar" type="reset" onClik={this.reset}/>
+                    <DivButton name="Cancelar" type="reset" func={this.reset}/>
                 </form>
             </PageDefault>
         )

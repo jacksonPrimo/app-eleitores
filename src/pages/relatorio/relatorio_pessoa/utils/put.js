@@ -1,9 +1,10 @@
 export default function Editar(e){
     e.preventDefault();
     const form = e.target;
+    console.log(form.method)
     const data = new FormData(form);
     const options ={
-        method: form.method,
+        method: 'put',
         body: new URLSearchParams(data)
     }
     fetch(form.action, options)
@@ -18,5 +19,6 @@ export default function Editar(e){
         })
         .catch(e=>{
             console.log('erro no fetch');
+            console.log(e)
         })
 }

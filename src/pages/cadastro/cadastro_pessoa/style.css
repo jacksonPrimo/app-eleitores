@@ -1,4 +1,4 @@
-.form-pes{
+.form_pes{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -7,24 +7,24 @@
     width: 70%;
     height: 75vh;
 }
-.form-pes .entrada{
+.form_pes .entrada{
     width: 45%;
     height: 10%;
     border-radius: 5px;
 }
-.form-pes .entrada:hover{
+.form_pes .entrada:hover{
     border: 2px solid #0001;
 }
-.form-pes .entrada.endereço{
+.form_pes .entrada.endereço{
     width: 95%;
 }
-.form-pes .entrada.div_button{
+.form_pes .entrada.div_button{
     width: 30%;
 }
-.form-pes .entrada label{
+.form_pes .entrada label{
     margin-bottom: 10px;
 }
-.form-pes .entrada input, select, button{
+.form_pes .entrada input, select, button{
     width: 100%;
     height: 100%;
     color: #0009;
@@ -33,23 +33,23 @@
     border: 0;
     border-radius: 5px;
 }
-.form-pes .entrada button{
+.form_pes .entrada button{
     font-size: 1.3rem;
     font-weight: bold;
 }
-.form-pes .entrada button:hover{
+.form_pes .entrada button:hover{
     background-color: #0004;
     cursor: pointer;
 }
 @media(max-width: 700px){
-    .form-pes{
+    .form_pes{
         height: 100%;
         width: 100%;
     }
-    .form-pes .entrada:hover{
+    .form_pes .entrada:hover{
         border: none;
     }
-    .form-pes .entrada{
+    .form_pes .entrada{
         width: 95%;
         padding: 5px 0px;
     }
