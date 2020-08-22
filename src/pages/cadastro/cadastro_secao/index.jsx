@@ -16,10 +16,10 @@ export default function CadSecao(){
                     <option value="Cândido Mendes">Cândido Mendes-MA</option>
                     <option value="São luis">São Luís-MA</option>
                 </DivSelect>
-                <DivInput type='text' name='capacidade' placeholder='Capacidade:'/>
-                <DivInput type='text' name='zona' placeholder='Zona:'/>
-                <DivInput type='text' name='numero' placeholder='Numero:'/>
-                <DivInput type='text' name='endereço' placeholder='Endereço:'/>
+                <DivInput required type='text' name='capacidade' placeholder='Capacidade:'/>
+                <DivInput required type='text' name='zona' placeholder='Zona:'/>
+                <DivInput required type='text' name='numero' placeholder='Numero:'/>
+                <DivInput required type='text' name='endereço' placeholder='Endereço:'/>
                 <DivInput type='text' name='referência' placeholder='Referência:'/>
                 <DivButton name="Registrar" type="submit"/>
                 <DivButton name="Cancelar" type="reset"/>

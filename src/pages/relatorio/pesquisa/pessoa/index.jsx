@@ -1,8 +1,8 @@
 import React from 'react'
-import './style.css'
-import PageDefault from '../../../components/pageDefault'
+import '../style.css'
+import PageDefault from '../../../../components/pageDefault'
 import Tabela from './components/tabela'
-export default class Pesquisa extends React.Component{
+export default class PesquisaPess extends React.Component{
     constructor(props){
         super(props)
         this.state = {
@@ -19,7 +19,7 @@ export default class Pesquisa extends React.Component{
         })
     }
     changeSelect=(e)=>{
-        if(e.target.value === 'data_nasc'){
+        if(e.target.value === 'data_de_nascimento'){
             this.setState({
                 type: 'date',
                 value: '',
@@ -42,21 +42,21 @@ export default class Pesquisa extends React.Component{
         return(
             <PageDefault>
                 <div className="div_pesquisa">
-                    <form onSubmit={this.submit}>
-                        <select required name="nomePesquisa" id="nomePesquisa" onChange={this.changeSelect}>
+                    <form className="form_pesquisa" onSubmit={this.submit}>
+                        <select className="select_pesquisa" required name="nomePesquisa" id="nomePesquisa" onChange={this.changeSelect}>
                             <option value="">pesquisar</option>
                             <option value="nome">Nome</option>
                             <option value="cidade">Cidade</option>
                             <option value="endereço">Endereço</option>
                             <option value="seção">seção</option>
                             <option value="apelido">apelido</option>
-                            <option value="data_nasc">data de nascimento</option>
+                            <option value="data_de_nascimento">data de nascimento</option>
                             <option value="telefone">telefone</option>
-                            <option value="ctt_ref">referência</option>
+                            <option value="referência">referência</option>
                             <option value="situação">Situação</option>
                         </select>
-                        <input required onChange={this.changeInput} type={this.state.type} name={this.props.nomePesquisa}/>
-                        <button type="submit"><i class="fas fa-search"></i></button>
+                        <input className="input_pesquisa" required onChange={this.changeInput} type={this.state.type} name={this.props.nomePesquisa}/>
+                        <button className="button_pesquisa" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     {
                         this.state.value === ''

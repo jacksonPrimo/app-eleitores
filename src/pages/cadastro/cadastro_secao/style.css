@@ -21,7 +21,7 @@
 .form-sec .entrada label{
     margin-bottom: 10px;
 }
-.form-sec .entrada input, select, button{
+.form-sec .entrada input, select, .button_form{
     width: 100%;
     height: 100%;
     color: #0009;
@@ -30,11 +30,11 @@
     border: 0;
     border-radius: 5px;
 }
-.form-sec .entrada button{
+.form-sec .entrada .button_form{
     font-size: 1.3rem;
     font-weight: bold;
 }
-.form-sec .entrada button:hover{
+.form-sec .entrada .button_form:hover{
     background-color: #0004;
     cursor: pointer;
 }

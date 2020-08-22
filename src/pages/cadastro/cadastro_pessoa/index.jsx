@@ -16,10 +16,10 @@ export default function CadPessoa(props){
                     <option value="Cândido Mendes">Cândido Mendes-MA</option>
                     <option value="São luis">São Luís-MA</option>
                 </DivSelect>
-                <DivInput type="text" name='nome' placeholder='Nome:'/>
+                <DivInput required type="text" name='nome' placeholder='Nome:'/>
                 <DivInput type="text" name='apelido' placeholder='Apelido:'/>
-                <DivInput type="date" name='data_de_nascimento' placeholder='Data de Nascimento:'/>
-                <DivInput type="text" name='endereço' placeholder='Endereço:'/>
+                <DivInput required type="date" name='data_de_nascimento' placeholder='Data de Nascimento:'/>
+                <DivInput required type="text" name='endereço' placeholder='Endereço:'/>
                 <DivInput type="text" name='seção' placeholder='Seção:'/>
                 <DivInput type="text" name='telefone' placeholder='Ex.: (00) 0000-0000'/>
                 <DivInput type="text" name='referência' placeholder='Referência:'/>

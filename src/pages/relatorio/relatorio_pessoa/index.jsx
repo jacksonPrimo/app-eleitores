@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import '../style.css'
 import PageDefault from '../../../components/pageDefault/index'
 import Body from './components/body_table'
 import TabelaExp from './components/tabela_expandida'
@@ -43,7 +43,7 @@ export default class Table extends React.Component{
             return(
                 <PageDefault>
                     <div className="div_table">
-                        <table className="tabela_pessoa">
+                        <table>
                             <thead>
                                 <tr>
                                     <th>Cidade</th>
@@ -67,7 +67,7 @@ export default class Table extends React.Component{
                 <PageDefault>
                     <button className="btn_voltar" onClick={this.atrofiarTabela}>voltar</button>
                     <div className="div_table">
-                        <table className="tabela_pessoa">
+                        <table>
                             <TabelaExp id_pessoa={this.state.id_pessoa}/>
                         </table>
                     </div>

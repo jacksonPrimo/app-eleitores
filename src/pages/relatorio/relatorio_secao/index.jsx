@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import '../style.css'
 import PageDefault from '../../../components/pageDefault/index'
 import Body from './components/body_table'
 import EditTabela from './components/editar_tabela'
@@ -40,7 +40,7 @@ export default class Table extends React.Component{
             return(
                 <PageDefault>
                     <div className="div_table">
-                        <table className="tabela_secao">
+                        <table>
                             <thead>
                                 <tr>
                                     <th>Cidade</th>
@@ -62,7 +62,9 @@ export default class Table extends React.Component{
         }
         else{
             return(
-                <EditTabela btn_func={this.atrofiarTabela} numero_sec={this.state.numero_sec}/>
+                <PageDefault>
+                    <EditTabela btn_func={this.atrofiarTabela} numero_sec={this.state.numero_sec}/>
+                </PageDefault>
             )
         }
     }

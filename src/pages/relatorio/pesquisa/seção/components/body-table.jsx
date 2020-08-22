@@ -7,22 +7,19 @@ export default class Body extends React.Component{
         }
     }
     componentDidMount(){
-        fetch(`http://localhost:8080/pessoa/filtrar/${this.props.valueBusca}`)
+        fetch(`http://localhost:8080/secao/filtrar/${this.props.valueBusca}`)
             .then(resp => resp.json())
-            .then(
-                (result)=>{
-                    if(result === []){
+            .then(resp =>{
+                if(resp.erro){
+                    this.setState({error: resp.erro})
+                }else{
+                    if(resp === []){
                         this.setState({error: 'resultado não encontrado'})
                     }else{
-                        this.setState({data: result})
+                        this.setState({data: resp})
                     }
-                },
-                (error)=>{
-                    this.setState({
-                        error
-                    })
                 }
-            )
+            })
     }
     render(){
         if(this.state.error){
@@ -40,24 +37,21 @@ export default class Body extends React.Component{
         return(
             <React.Fragment>
                 {
-                    this.state.data.map((pessoa, index)=>
-                        <tr key={index} id={pessoa.id}>
-                            <td>{pessoa.cidade}</td>
-                            <td>{pessoa.nome}</td>
-                            <td>{pessoa.seção}</td>
-                            <td>{pessoa.situação}</td>
-                            <td>{pessoa.id}</td>
+                    this.state.data.map((sec, index)=>
+                        <tr key={index} id={sec.id}>
+                            <td>{sec.cidade}</td>
+                            <td>{sec.capacidade}</td>
+                            <td>{sec.zona}</td>
+                            <td>{sec.numero}</td>
+                            <td>{sec.endereço}</td>
+                            <td>{sec.referência}</td>
                             <td class="options">
-                                <i className="fas fa-arrows-alt expandir" 
-                                    id_button={pessoa.id}
-                                    onClick={this.props.exp}>
-                                </i>
                                 <i className="fas fa-pencil editar" 
-                                    id_button={pessoa.id}
+                                    id_button={sec.id}
                                     onClick={this.props.edit}>    
                                 </i>
                                 <i className="fas fa-trash excluir" 
-                                    id_button={pessoa.id}
+                                    id_button={sec.id}
                                     onClick={this.props.excl}>
                                 </i>
                             </td>

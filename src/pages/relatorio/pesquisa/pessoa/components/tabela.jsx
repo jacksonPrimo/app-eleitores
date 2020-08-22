@@ -1,7 +1,7 @@
 import React from 'react'
 import Body from './body-table'
-import TabelaExp from '../../relatorio_pessoa/components/tabela_expandida'
-import EditTabela from '../../relatorio_pessoa/components/editar_tabela'
+import TabelaExp from '../../../relatorio_pessoa/components/tabela_expandida'
+import EditTabela from '../../../relatorio_pessoa/components/editar_tabela'
 export default class Tabela extends React.Component{
     constructor(props){
         super(props)
@@ -32,15 +32,19 @@ export default class Tabela extends React.Component{
         fetch(`http://localhost:8080/pessoa/remover/${id}`, {method:'DELETE'})
             .then(resp=>resp.json())
             .then(resp=>{
+                if(resp.erro){
+                    alert(resp.erro)
+                }else{
                     linha.style.display = 'none'
                     alert(resp.message)
+                }
             })
     }
     render(){
         if(this.state.conteudo === 'tabela'){
             return(
                 <div className="div_table">
-                    <table className="tabela_pessoa">
+                    <table>
                         <thead>
                             <tr>
                                 <th>Cidade</th>
@@ -63,7 +67,7 @@ export default class Tabela extends React.Component{
                 <React.Fragment>
                     <button className="btn_voltar" onClick={this.atrofiarTabela}>voltar</button>
                     <div className="div_table">
-                        <table className="tabela_pessoa">
+                        <table>
                             <TabelaExp id_pessoa={this.state.id_pessoa}/>
                         </table>
                     </div>
