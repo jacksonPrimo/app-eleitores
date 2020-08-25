@@ -1,9 +1,11 @@
+import { PolyUtil } from "leaflet";
+
 export default function Cadastrar(e){
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
     const options ={
-        method: form.method,
+        method: form.getAttribute('method'),
         body: new URLSearchParams(data)
     }
     fetch(form.action, options)

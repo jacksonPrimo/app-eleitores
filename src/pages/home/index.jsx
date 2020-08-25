@@ -7,20 +7,127 @@ import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
 import PageDefault from '../../components/pageDefault/index'
 import "./style.css";
+import register from '../cadastro/utils/register'
 export default class Home extends React.Component{
     constructor(){
         super();
         this.state = {
-            popup: 'descrição',
+            popup_content: 'options',
+            popup_position: '',
+            popup_info: '',
             markers: [],
         };
     }
+    componentDidMount(){
+        fetch('http://localhost:8080/marker/listar')
+            .then(resp=>resp.json())
+            .then(resp=>{
+                if(resp.erro){
+                    alert('erro ao recuperar marcações feitas no mapa')
+                }else{
+                    if(resp !== []){
+                        let markers = resp.map(marker=>{
+                            let latlng = marker.POSITION.split('/')
+                            return {lat:parseFloat(latlng[0]), lng:parseFloat(latlng[1])}
+                        })
+                        this.setState({ markers});
+                    }
+                }
+            })
+    }    
+    voltar = e =>{
+        this.setState({
+            popup_content: 'options',
+            popup_info: ''
+        })
+    }
+    informar=(e)=>{
+        const position = e.target.getAttribute("position")
+        const config = {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({position: position})
+        }
+        fetch(`http://localhost:8080/marker/buscar`, config)
+            .then(resp=>resp.json())
+            .then(resp=>{
+                if(resp.erro){
+                    alert(resp.erro)
+                }else{
+                    const nome = resp[0].NOME 
+                    console.log(nome)
+                    if(nome === null){
+                        this.setState({
+                            popup_content: 'info'
+                        })
+                    }else{
+                        this.setState({
+                            popup_content: 'info',
+                            popup_info: nome
+                        })
+                    }
+                }
+            })
+    }
+    editar = e =>{
+        const position = e.target.getAttribute("position")
+        this.setState({
+            popup_content: 'editar',
+            popup_position: position
+        })
+    }
+    excluir = e =>{
+        const position = e.target.getAttribute("position")
+        console.log(e.target)
+        const body = { position: position }
+        const config = {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        }
+        fetch(`http://localhost:8080/marker/remover`, config)
+            .then(resp=>resp.json())
+            .then(resp=>{
+                if(resp.erro){
+                    alert('erro ao excluir')
+                }else{
+                    console.log('excluiu')
+                    this.componentDidMount()
+                }
+            })
+    }
     addMarker = (e) => {
-        const { markers } = this.state;
-        //markers.pop();
-        markers.push(e.latlng);
-        console.log(e.latlng)
-        this.setState({ markers });
+        const position = `${e.latlng.lat}/${e.latlng.lng}`
+        const body = { position: position }
+        const config = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        }
+        fetch(`http://localhost:8080/marker/adicionar`, config)
+            .then(resp=>resp.json())
+            .then(resp=>{
+                if(resp.erro){
+                    alert(resp.erro)
+                }else{
+                    const { markers } = this.state;
+                    markers.push(e.latlng);
+                    console.log(e.latlng)
+                    this.setState({ markers });
+                }
+            })
+            .catch(err =>{
+                console.log(err)
+            })
     }
     render(){
         let DefaultIcon = L.icon({
@@ -50,26 +157,43 @@ export default class Home extends React.Component{
                             :this.state.markers.map((position, idx) =>
                                 <Marker key={`marker-${idx}`} position={position} onClick={e=>{console.log(e)}}>
                                     <Popup>
-                                        <div className="popup">
-                                            <button className="btn_popup">
-                                                <i className="fas fa-arrows-alt info" 
-                                                    id_button={"1"}
-                                                    onClick={e=>{console.log('função de informar')}}>
-                                                </i>
-                                            </button>
-                                            <button className="btn_popup">
-                                                <i className="fas fa-pencil editar" 
-                                                    id_button={"2"}
-                                                    onClick={e=>{console.log('função de editar')}}>    
-                                                </i>
-                                            </button>
-                                            <button className="btn_popup">
-                                                <i className="fas fa-trash excluir" 
-                                                    id_button={"3"}
-                                                    onClick={e=>{console.log('função de excluir')}}>
-                                                </i>
-                                            </button>
-                                        </div>
+                                        {   
+                                            this.state.popup_content === 'editar'
+                                            ?
+                                            <div className="popup">
+                                                <form action="http://localhost:8080/marker/atualizar" method="put" onSubmit={register}>
+                                                    <input name="nome" placeholder="Nome"/>
+                                                    <input style={{display: 'none'}} name="position" value={this.state.popup_position}/>
+                                                    <button onClick={this.voltar}><i class="fas fa-arrow-circle-left"></i></button>
+                                                    <button type="submit"><i class="fas fa-arrow-circle-right"></i></button>
+                                                </form>
+                                            </div>
+                                            :
+                                            this.state.popup_content === 'info'
+                                            ?
+                                            <div className="popup">
+                                                <p>{this.state.popup_info}</p> 
+                                                <button onClick={this.voltar}><i class="fas fa-arrow-circle-left"></i></button>
+                                            </div>
+                                            :
+                                            <div className="popup">
+                                                <button className="btn_popup">
+                                                    <i className="fas fa-info-circle info"
+                                                        position={`${position.lat}/${position.lng}`}
+                                                        onClick={this.informar}></i>
+                                                </button>
+                                                <button className="btn_popup">
+                                                    <i className="fas fa-pencil editar"
+                                                        position={`${position.lat}/${position.lng}`}
+                                                        onClick={this.editar}></i>
+                                                </button>
+                                                <button className="btn_popup">
+                                                    <i className="fas fa-trash excluir"
+                                                        position={`${position.lat}/${position.lng}`}
+                                                        onClick={this.excluir}></i>
+                                                </button>
+                                            </div>
+                                        }
                                     </Popup>
                                 </Marker>
                             )
