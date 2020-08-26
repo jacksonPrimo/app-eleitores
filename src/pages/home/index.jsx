@@ -148,7 +148,7 @@ export default class Home extends React.Component{
                 <div className="home">
                     <form className="form_home">
                         <select name="cidade_mapa" onChange={this.setCidade} className="select_cidade">
-                            <option value="">Cidade</option>
+                            <option value="-5.397273407690904/-46.166557061875096/6">Cidade</option>
                             <option value="-1.2036010434416355/-46.019630969691626/15">Carutapera-MA</option>
                             <option value="-1.678179112974127/-46.01164708451035/15">Amapá-MA</option>
                             <option value="-1.4545022595109487/-45.72853315240408/15">Cândido Mendes-MA</option>
