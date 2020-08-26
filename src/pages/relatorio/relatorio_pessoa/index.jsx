@@ -34,8 +34,12 @@ export default class Table extends React.Component{
         fetch(`http://localhost:8080/pessoa/remover/${id}`, {method:'DELETE'})
             .then(resp=>resp.json())
             .then(resp=>{
+                if(resp.erro){
+                    alert(resp.erro)
+                }else{
                     linha.style.display = 'none'
                     alert(resp.message)
+                }
             })
     }
     render(){

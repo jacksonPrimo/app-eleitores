@@ -8,7 +8,6 @@ import CadPessoa from './pages/cadastro/cadastro_pessoa'
 import CadSecao from './pages/cadastro/cadastro_secao'
 import RelatorioPess from './pages/relatorio/relatorio_pessoa'
 import RelatorioSec from './pages/relatorio/relatorio_secao'
-// import Pesquisa from './pages/relatorio/pesquisa/pessoa'
 import PesquisaPess from './pages/relatorio/pesquisa/pessoa'
 import PesquisaSec from './pages/relatorio/pesquisa/seção'
 ReactDOM.render(
@@ -20,7 +19,6 @@ ReactDOM.render(
         <Route path="/cadastrar/secao" component={CadSecao}/>
         <Route path="/relatorio/pessoa" component={RelatorioPess}/>
         <Route path="/relatorio/secao" component={RelatorioSec}/>
-        {/* <Route path="/relatorio/buscar/busca" component={Pesquisa}/> */}
         <Route path="/pesquisar/pessoa" component={PesquisaPess}/>
         <Route path="/pesquisar/secao" component={PesquisaSec}/>
       </Switch>

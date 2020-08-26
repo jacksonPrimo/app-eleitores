@@ -11,14 +11,14 @@ export default function CadSecao(){
             <form className="form-sec" name='form-sec' action='http://localhost:8080/secao/adicionar' method='post' onSubmit={e=>Cadastrar(e)}>
                 <DivSelect name="cidade">
                     <option value="">Cidade</option>
-                    <option value="Carutapera">Carutapera-MA</option>
-                    <option value="Amapá">Amapá-MA</option>
-                    <option value="Cândido Mendes">Cândido Mendes-MA</option>
-                    <option value="São luis">São Luís-MA</option>
+                    <option value="Carutapera">Carutapera</option>
+                    <option value="Amapá">Amapá</option>
+                    <option value="Cândido Mendes">Cândido Mendes</option>
+                    <option value="São luis">São Luís</option>
                 </DivSelect>
-                <DivInput required type='text' name='capacidade' placeholder='Capacidade:'/>
-                <DivInput required type='text' name='zona' placeholder='Zona:'/>
-                <DivInput required type='text' name='numero' placeholder='Numero:'/>
+                <DivInput required type='number' name='capacidade' placeholder='Capacidade:'/>
+                <DivInput required type='number' name='zona' placeholder='Zona:'/>
+                <DivInput required type='number' name='numero' placeholder='Numero:'/>
                 <DivInput required type='text' name='endereço' placeholder='Endereço:'/>
                 <DivInput type='text' name='referência' placeholder='Referência:'/>
                 <DivButton name="Registrar" type="submit"/>

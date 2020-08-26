@@ -19,18 +19,18 @@ export default class PesquisaPess extends React.Component{
         })
     }
     changeSelect=(e)=>{
-        if(e.target.value === 'data_de_nascimento'){
-            this.setState({
-                type: 'date',
-                value: '',
-                valueSelect: e.target.value
-            })
+        const value = e.target.value
+        this.setState({
+            value: '',
+            valueSelect: value
+        })
+        if(value === 'data_de_nascimento'){
+            this.setState({type: 'date'})
+        }
+        else if(value === 'seção'){
+            this.setState({type: 'number'})
         }else{
-            this.setState({
-                type: 'text',
-                value: '',
-                valueSelect: e.target.value
-            })
+            this.setState({type: 'text',})
         }
     }
     submit=(e)=>{

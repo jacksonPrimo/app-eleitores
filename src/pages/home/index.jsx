@@ -4,7 +4,6 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import React from 'react'
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import { Icon } from "leaflet";
 import PageDefault from '../../components/pageDefault/index'
 import "./style.css";
 import register from '../cadastro/utils/register'
@@ -12,6 +11,8 @@ export default class Home extends React.Component{
     constructor(){
         super();
         this.state = {
+            map_position: [-5.397273407690904,-46.166557061875096],
+            zoom_map: 6,
             popup_content: 'options',
             popup_position: '',
             popup_info: '',
@@ -129,6 +130,13 @@ export default class Home extends React.Component{
                 console.log(err)
             })
     }
+    setCidade = e =>{
+        let info = e.target.value.split('/')
+        this.setState({
+            map_position: [parseFloat(info[0]), parseFloat(info[1])],
+            zoom_map: parseFloat(info[2])
+        })
+    }
     render(){
         let DefaultIcon = L.icon({
             iconUrl: icon,
@@ -138,10 +146,19 @@ export default class Home extends React.Component{
         return(
             <PageDefault>
                 <div className="home">
+                    <form className="form_home">
+                        <select name="cidade_mapa" onChange={this.setCidade} className="select_cidade">
+                            <option value="">Cidade</option>
+                            <option value="-1.2036010434416355/-46.019630969691626/15">Carutapera-MA</option>
+                            <option value="-1.678179112974127/-46.01164708451035/15">Amapá-MA</option>
+                            <option value="-1.4545022595109487/-45.72853315240408/15">Cândido Mendes-MA</option>
+                            <option value="-2.579834/-44.194949/11">São Luís-MA</option>
+                        </select>
+                    </form>
                     <Map
-                        center={[-1.2036010434416355, -46.019630969691626]}
+                        center={this.state.map_position}
                         onClick={this.addMarker}
-                        zoom={15}
+                        zoom={this.state.zoom_map}
                         maxZoom={18}
                         minZoom={5}   
                         style={{width: '100%',height: '100%'}}

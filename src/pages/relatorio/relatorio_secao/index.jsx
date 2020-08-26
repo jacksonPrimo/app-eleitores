@@ -10,7 +10,7 @@ export default class Table extends React.Component{
             conteudo: 'tabela'
         }
     }
-    atrofiarTabela=(e)=>{
+    voltar=(e)=>{
         this.setState({conteudo: 'tabela'})
     }
     editarTabela=e=>{
@@ -25,15 +25,14 @@ export default class Table extends React.Component{
         const linha = document.getElementById(numero)
         fetch(`http://localhost:8080/secao/remover/${numero}`, {method:'DELETE'})
             .then(resp=>resp.json())
-            .then(
-                (resp)=>{
+            .then(resp=>{
+                if(resp.erro){
+                    alert(resp.erro)
+                }else{   
                     linha.style.display = 'none'
                     alert(resp.message)
-                },
-                (error)=>{
-                    alert("erro ao remover esta seção")
                 }
-            )
+            })
     }
     render(){
         if(this.state.conteudo === 'tabela'){
@@ -63,7 +62,7 @@ export default class Table extends React.Component{
         else{
             return(
                 <PageDefault>
-                    <EditTabela btn_func={this.atrofiarTabela} numero_sec={this.state.numero_sec}/>
+                    <EditTabela btn_func={this.voltar} numero_sec={this.state.numero_sec}/>
                 </PageDefault>
             )
         }

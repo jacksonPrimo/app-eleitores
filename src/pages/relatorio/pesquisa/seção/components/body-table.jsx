@@ -11,10 +11,13 @@ export default class Body extends React.Component{
             .then(resp => resp.json())
             .then(resp =>{
                 if(resp.erro){
+                    alert(resp.erro)
                     this.setState({error: resp.erro})
                 }else{
-                    if(resp === []){
-                        this.setState({error: 'resultado não encontrado'})
+                    if(resp.length === 0){
+                        const erro = 'resultado não encontrado'
+                        alert(erro)
+                        this.setState({error: erro})
                     }else{
                         this.setState({data: resp})
                     }
@@ -25,12 +28,13 @@ export default class Body extends React.Component{
         if(this.state.error){
             return(
                 <tr>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
                 </tr>
             )
         }

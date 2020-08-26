@@ -19,17 +19,10 @@ export default function NavBar(props){
                         <LinkNav fig="fas fa-building" txtSpan="Seções" url="/relatorio/secao"/>
                     </ul>
                 </ItemList>
-                {/* <ItemList url="/relatorio/buscar/busca" fig="fas fa-search" txtSpan="pesquisar"/> */}
                 <ItemList fig="fas fa-search" txtSpan="Pesquisar">
                     <ul className="sub_menu">
                         <LinkNav fig="fas fa-id-card" txtSpan="Pessoa" url="/pesquisar/pessoa"/>
                         <LinkNav fig="fas fa-building" txtSpan="Seção" url="/pesquisar/secao"/>
-                    </ul>
-                </ItemList>
-                <ItemList fig="fas fa-chart-line" txtSpan="Situação">
-                    <ul className="sub_menu">
-                        <LinkNav fig="fas fa-user-chart" txtSpan="Eleitores" url="/"/>
-                        <LinkNav fig="fas fa-user-chart" txtSpan="Não Eleitores" url="/"/>
                     </ul>
                 </ItemList>
             </ul>

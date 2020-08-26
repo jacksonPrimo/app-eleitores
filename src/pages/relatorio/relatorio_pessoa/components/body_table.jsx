@@ -10,36 +10,31 @@ export default class Body extends React.Component{
     componentDidMount(){
         fetch('http://localhost:8080/pessoa/listar')
             .then(resp => resp.json())
-            .then(
-                (result)=>{
-                    if(result === []){
-                        this.setState({
-                            error: 'sem seções cadastradas'
-                        })
+            .then(resp=>{
+                if(resp.erro){
+                    alert(resp.erro)
+                    this.setState({error: resp.erro})
+                }else{
+                    if(resp.length === 0){
+                        const erro = 'sem seções cadastradas'
+                        alert(erro)
+                        this.setState({error: erro})
                     }else{
-                        this.setState({
-                            data: result
-                        })
+                        this.setState({data: resp})
                     }
-                },
-                (error)=>{
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    })
                 }
-            )
+            })
     }
     render(){
         if(this.state.error){
             return(
                 <tr>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
                 </tr>
             )
         }

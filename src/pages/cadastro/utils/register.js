@@ -1,5 +1,3 @@
-import { PolyUtil } from "leaflet";
-
 export default function Cadastrar(e){
     e.preventDefault();
     const form = e.target;
@@ -19,6 +17,6 @@ export default function Cadastrar(e){
             }
         })
         .catch(e=>{
-            console.log('erro no fetch');
+            alert("API DESLIGADA");
         })
 }

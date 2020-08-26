@@ -18,10 +18,16 @@ export default class PesquisaSec extends React.Component{
         })
     }
     changeSelect=(e)=>{
+        const value = e.target.value
         this.setState({
             value: '',
-            valueSelect: e.target.value
+            valueSelect: value
         })
+        if(['capacidade', 'zona', 'numero'].includes(value)){
+            this.setState({type: 'number'})
+        }else{
+            this.setState({type: 'text',})
+        }
     }
     submit=(e)=>{
         e.preventDefault()

@@ -11,22 +11,22 @@ export default function CadPessoa(props){
             <form className="form_pes" action='http://localhost:8080/pessoa/adicionar' method='post' onSubmit={e=>Cadastrar(e)}>
                 <DivSelect name="cidade">
                     <option value="">Cidade</option>
-                    <option value="Carutapera">Carutapera-MA</option>
-                    <option value="Amapá">Amapá-MA</option>
-                    <option value="Cândido Mendes">Cândido Mendes-MA</option>
-                    <option value="São luis">São Luís-MA</option>
+                    <option value="Carutapera">Carutapera</option>
+                    <option value="Amapá">Amapá</option>
+                    <option value="Cândido Mendes">Cândido Mendes</option>
+                    <option value="São luis">São Luís</option>
                 </DivSelect>
                 <DivInput required type="text" name='nome' placeholder='Nome:'/>
                 <DivInput type="text" name='apelido' placeholder='Apelido:'/>
                 <DivInput required type="date" name='data_de_nascimento' placeholder='Data de Nascimento:'/>
                 <DivInput required type="text" name='endereço' placeholder='Endereço:'/>
-                <DivInput type="text" name='seção' placeholder='Seção:'/>
+                <DivInput type="number" name='seção' placeholder='Seção:'/>
                 <DivInput type="text" name='telefone' placeholder='Ex.: (00) 0000-0000'/>
                 <DivInput type="text" name='referência' placeholder='Referência:'/>
                 <DivSelect name="situação">
                     <option value="">Situação do Eleitor</option>
-                    <option value="Votante">Eleitor</option>
-                    <option value="Nao Votante">Não Eleitor</option>
+                    <option value="Eleitor">Eleitor</option>
+                    <option value="Nao Eleitor">Não Eleitor</option>
                     <option value="Indeciso">Eleitor indeciso</option>
                 </DivSelect>
                 <DivButton name="Registrar" type="submit"/>

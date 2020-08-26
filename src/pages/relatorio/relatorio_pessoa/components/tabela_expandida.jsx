@@ -17,24 +17,24 @@ export default class TabelaExp extends React.Component{
     componentDidMount(){
         fetch(`http://localhost:8080/pessoa/buscar/${this.props.id_pessoa}`)
             .then(resp=>resp.json())
-            .then(
-                (result)=>{
-                    if(result === []){
-                        this.setState({error: 'falha em expandir a tabela'})
+            .then(resp=>{
+                if(resp.erro){
+                    alert(resp.erro)
+                    this.setState({error: resp.erro})
+                }else{
+                    if(resp.length === 0){
+                        const erro = 'falha em expandir a tabela'
+                        alert(erro)
+                        this.setState({error: erro})
                     }else{
-                        let pessoa = result[0]
+                        let pessoa = resp[0]
                         pessoa['data_de_nascimento'] = pessoa['data_de_nascimento'].split('T')[0]
                         this.setState({
                             pessoa
                         })
                     }
-                },
-                (error)=>{
-                    this.setState({
-                        error: 'falha em expandir a tabela'
-                    })
                 }
-            )
+            })
     }
     render(){
         if(this.state.error){

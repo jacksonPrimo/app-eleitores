@@ -54,13 +54,13 @@ export default class EditTabela extends React.Component{
                         </select>
                     </div>
                     <div className="entrada capacidade">
-                        <input required type="text" name='capacidade' placeholder='Capacidade:' onChange={this.change} value={this.state.capacidade}/>
+                        <input required type="number" name='capacidade' placeholder='Capacidade:' onChange={this.change} value={this.state.capacidade}/>
                     </div>
                     <div className="entrada zona">
-                        <input required type="text" name='zona' placeholder='Zona:' onChange={this.change} value={this.state.zona}/>
+                        <input required type="number" name='zona' placeholder='Zona:' onChange={this.change} value={this.state.zona}/>
                     </div>
                     <div className="entrada numero">
-                        <input required type="text" name='numero' placeholder='Numero:' onChange={this.change} value={this.state.numero}/>
+                        <input required type="number" name='numero' placeholder='Numero:' onChange={this.change} value={this.state.numero}/>
                     </div>
                     <div className="entrada endereço">
                         <input required type="text" name='endereço' placeholder='Endereço:' onChange={this.change} value={this.state.endereço}/>

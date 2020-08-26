@@ -11,11 +11,13 @@ export default class Body extends React.Component{
             .then(resp => resp.json())
             .then(resp => {
                 if(resp.erro){
-                    console.log(resp.erro)
+                    alert(resp.erro)
                     this.setState({error: resp.erro})
                 }else{
-                    if(resp === []){
-                        this.setState({error: 'pessoa não encontrado'})
+                    if(resp.length === 0){
+                        const erro = 'pessoa não encontrado'
+                        alert(erro)
+                        this.setState({error: erro})
                     }else{
                         this.setState({data: resp})
                     }
@@ -26,12 +28,12 @@ export default class Body extends React.Component{
         if(this.state.error){
             return(
                 <tr>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
-                    <td>erro</td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
+                    <td><i className="fas fa-times"></i></td>
                 </tr>
             )
         }else{
@@ -45,7 +47,7 @@ export default class Body extends React.Component{
                                 <td>{pessoa.seção}</td>
                                 <td>{pessoa.situação}</td>
                                 <td>{pessoa.id}</td>
-                                <td class="options">
+                                <td className="options">
                                     <i className="fas fa-arrows-alt expandir" 
                                         id_button={pessoa.id}
                                         onClick={this.props.exp}>
