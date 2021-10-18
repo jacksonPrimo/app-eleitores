@@ -35,6 +35,9 @@ export default class Home extends React.Component{
                     }
                 }
             })
+            .catch(erro =>{
+                console.log(erro)
+            })
     }    
     voltar = e =>{
         this.setState({
